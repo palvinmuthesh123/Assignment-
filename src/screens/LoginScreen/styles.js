@@ -33,6 +33,6 @@ export default ScaledSheet.create({
         paddingHorizontal: 5
     },
     input: {
-
+        width:'90%',
     },
 })

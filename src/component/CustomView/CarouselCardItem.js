@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet, Dimensions, Image } from "react-native"
+import { View, Text, StyleSheet, Dimensions, Image,TouchableOpacity } from "react-native"
 import { FONT_SIZE, COLOR, FONT_WEIGHT } from '../../theme/typography'
 import LinearGradient from "react-native-linear-gradient";
 
@@ -23,9 +23,9 @@ const CarouselCardItem = ({ index }) => {
             <Image source={require('../../assets/images/send.png')} />
             <Text style={styles.address}>San Francisco ,CA</Text>
           </View>
-          <View style={styles.connectBox}>
+          <TouchableOpacity style={styles.connectBox}>
             <Text style={styles.connect}>Connect</Text>
-          </View>
+          </TouchableOpacity>
         </View>
         <View style={{ marginVertical: 10 }}>
           <Text style={styles.news}>Wonderful building near London Big Ben with Amazing News</Text>

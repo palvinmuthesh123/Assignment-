@@ -16,7 +16,7 @@ const Stack = createStackNavigator();
 const AppStack = props => {
   return (
     <Stack.Navigator
-      // initialRouteName={'DashBoardScreen'}
+      // initialRouteName={'LoginScreen'}
       screenOptions={{
         headerShown: false,
       }}>

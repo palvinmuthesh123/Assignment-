@@ -4,11 +4,12 @@ import styles from "./styles";
 import LinearGradient from 'react-native-linear-gradient';
 import CheckBox from '@react-native-community/checkbox';
 import { COLOR, FONT_SIZE, FONT_WEIGHT, HEIGHT, WIDTH } from "../../theme/typography";
-
+import Eye from '../../assets/svg/login/view.svg';
 
 export default LoginScreen = (props) => {
 
     const [change, setChange] = useState(false)
+    const [open, setOpen] = useState(true)
 
     return (
         <SafeAreaView style={styles.container}>
@@ -26,11 +27,11 @@ export default LoginScreen = (props) => {
                 </View>
                 <View style={[styles.inputBox, {}]}>
                     <TextInput
-                        secureTextEntry={true}
+                        secureTextEntry={open}
                         style={styles.input}
                         placeholderTextColor={'grey'}
                         placeholder="Password" />
-                    <Image source={require('../../assets/images/eye.png')} />
+                    <TouchableOpacity onPress={() => setOpen(!open)}>{open ? <Image source={require('../../assets/images/eye.png')} /> : <Image source={require('../../assets/images/eye_open.png')} style={{ height: 25, width: 25 }} />}</TouchableOpacity>
                 </View>
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', width: '90%', marginTop: 5, alignItems: 'center' }}>
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
@@ -39,9 +40,9 @@ export default LoginScreen = (props) => {
                             disabled={false}
                             onChange={() => setChange(!change)}
                         />
-                        <Text style={{ color: 'grey' }}>Remember Me</Text>
+                        <TouchableOpacity onPress={() => setChange(!change)}><Text style={{ color: 'grey' }}>Remember Me</Text></TouchableOpacity>
                     </View>
-                    <Text style={{ color: 'grey' }}>Forgot Password?</Text>
+                    <TouchableOpacity><Text style={{ color: 'grey' }}>Forgot Password?</Text></TouchableOpacity>
                 </View>
 
                 <TouchableOpacity onPress={() => props.navigation.push('DashBoardScreen')}><LinearGradient
@@ -54,7 +55,7 @@ export default LoginScreen = (props) => {
                 </LinearGradient></TouchableOpacity>
                 <View style={{ flexDirection: 'row' }}>
                     <Text style={{ color: COLOR.black, fontSize: FONT_SIZE.compact, marginHorizontal: 3 }}>Don't have an account?</Text>
-                    <Text style={{ color: '#14BC66', fontSize: FONT_SIZE.compact, }}>Register now!</Text>
+                    <TouchableOpacity><Text style={{ color: '#14BC66', fontSize: FONT_SIZE.compact, }}>Register now!</Text></TouchableOpacity>
                 </View>
             </View>
             <View style={{ height: HEIGHT / 100 * 20 }}></View>

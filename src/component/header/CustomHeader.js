@@ -32,11 +32,15 @@ const CustomHeader = props => {
                 {props.title}
             </Text>
 
-            <TouchableOpacity
+            <View
                 style={styles.touch}>
-                <Image source={require('../../assets/images/search.png')} />
-                <Image source={require('../../assets/images/note.png')} />
-            </TouchableOpacity>
+                <TouchableOpacity>
+                    <Image source={require('../../assets/images/search.png')} />
+                </TouchableOpacity>
+                <TouchableOpacity>
+                    <Image source={require('../../assets/images/note.png')} />
+                </TouchableOpacity>
+            </View>
         </SafeAreaView>
     );
 };
